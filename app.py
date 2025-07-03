@@ -2,16 +2,18 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 from pathlib import Path
+
 # Lendo os dados
 car_data = pd.read_csv('Data/vehicles.csv')
 
-
+st.header('Aplicação web interativa para explorar e visualizar dados de anúncios de venda de veículos.')
 
 # Botão para histograma
 hist_button = st.button('Criar histograma')
 
 if hist_button:
     st.write('Criando um histograma para o conjunto de dados de anúncios de vendas de carros')
+    st.subheader("Histograma do Odômetro dos Veículos")
     fig = px.histogram(car_data, x="odometer")
     st.plotly_chart(fig, use_container_width=True)
 
